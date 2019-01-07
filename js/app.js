@@ -22,7 +22,26 @@ function eventListeners() {
 document.querySelector(".video__switch").addEventListener("click", function(){
   ui.videoControls();
 })
-
+  
+// submit the form 
+  document.querySelector(".drink-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const name = document.querySelector(".input-name").value;
+    const lastName = document.querySelector(".input-lastname").value;
+    const email = document.querySelector(".input-email").value;
+    
+    let value = ui.checkEmpty(name, lastName, email)
+    // console.log(value);
+    
+    if(value) {
+      ui.showFeedback("customer added to the list", "success")
+    } 
+      else 
+    {
+      ui.showFeedback("some form values empty", "error")
+    }
+    
+  })
 }
 
 
@@ -55,6 +74,47 @@ UI.prototype.videoControls = function() {
     document.querySelector(".video__item").play();
   }
 }
+
+// check for empty values
+UI.prototype.checkEmpty = function(name, lastname, email) {
+  let result;
+  
+  if (name === "" || lastname === "" || email === "") {
+    result = false;
+  }
+  else {
+    result = true;
+  }
+  return result;
+}
+
+
+UI.prototype.showFeedback = function (text, type) {
+  if (type === "success"){
+    let feedback = document.querySelector(".drink-form__feedback");
+    feedback.classList.add("success");
+    feedback.innerText = text;
+    this.removeAlert("success");   
+  } 
+  else if (type === "error") {
+    let feedback = document.querySelector(".drink-form__feedback");
+    feedback.classList.add("error");
+    feedback.innerText = text;
+    this.removeAlert("error");
+  }
+}
+
+// remove alert
+UI.prototype.removeAlert = function (type) {
+  
+  setTimeout(function(){
+    document.querySelector(".drink-form__feedback").classList.remove(type)
+  }, 3000)
+}
+
+
+
+
 
 
 
