@@ -514,7 +514,7 @@ body {
   
 @media screen and (min-width: 992px) {
   .work-container{
-    width: 75vw;
+
     height: 100vh;
     
     grid-template-columns: repeat(4,1fr);
@@ -620,10 +620,86 @@ body {
   color: red;
 }
 
-
 /* end of MODAL */
-
 /* end of work section */
+
+
+
+/* CONTACT section */
+.contact-container {
+  max-width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-row-gap: 1rem;
+}
+
+.contact-info {
+  display: grid;
+  justify-content: center;
+}
+
+.contact-item {
+  margin: 1rem 0;
+  padding: .5rem;
+}
+
+.contact-item__icon {
+  font-size: 3rem;
+  color: var(--yellow);
+}
+
+.contact-item__title {
+  text-transform: uppercase;
+  margin: .5rem 0;
+  letter-spacing: .25rem;
+  font-style: italic;
+}
+
+.contact-item__text {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+@media screen and (min-width:768px) {
+  .contact-info {
+    grid-template-columns: repeat(3, 1fr);
+    order: -1;
+  }
+}
+
+
+@media screen and (min-width:992px) {
+  .contact-info {
+    grid-template-columns: 1fr;
+    order: 0;
+  }
+  
+  .contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 2rem;
+  }
+}
+
+.contact-map {
+  align-self: center;
+}
+
+/* end of CONTACT section */
+
+.foot { 
+  height: 3.5rem;
+  
+}
+
+.foot-text {
+  padding-top: 1rem;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 100;
+  text-transform: none;
+}
 
 
 
