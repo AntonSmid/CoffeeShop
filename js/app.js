@@ -51,6 +51,26 @@ document.querySelector(".video__switch").addEventListener("click", function(){
     }
     
   })
+  
+  
+  // display modal
+  const links = document.querySelectorAll(".work-item__icon");
+  // console.log(links);
+  
+  links.forEach(function(item) {
+    item.addEventListener("click", function(event) {
+      ui.showModal(event)
+    })
+  })
+  
+  // hide modal
+  document.querySelector(".work-modal__close").addEventListener("click",function(){
+    ui.closeModal();
+  })
+  
+  
+  
+  
 }
 
 
@@ -146,9 +166,36 @@ UI.prototype.clearFields = function() {
 }
 
 
+// show modal
+UI.prototype.showModal = function(event) {
+  event.preventDefault();
+  // console.log(event.target.parentElement);
+  
+  if (event.target.parentElement.classList.contains("work-item__icon")) {
+  
+    let id = event.target.parentElement.dataset.id;
+    // console.log(id);
+  
+    const modal = document.querySelector(".work-modal");
+    const modalItem = document.querySelector(".work-modal__item");
+  
+    modal.classList.add("work-modal--show");
+    modalItem.style.backgroundImage = `url(img/work-${id}.jpeg)`;
+    }
+}
+
+
+// hide modal
+UI.prototype.closeModal = function() {
+  document.querySelector(".work-modal").classList.remove("work-modal--show");
+}
 
 
 
+
+
+
+// Customer
 function Customer (name, lastname, email) {
   this.name = name,
   this.lastname = lastname,

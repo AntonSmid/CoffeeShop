@@ -490,6 +490,7 @@ body {
   transform: scale(0);
 }
 
+
 .work-item:hover 
 .work-item__icon {
   transform: scale(1.3) translate(-50%, -50%);
@@ -500,6 +501,7 @@ body {
   color: var(--brown);
   cursor: pointer;
 }
+
 
 @media screen and (min-width: 576px) {
   .work-container {
@@ -562,13 +564,14 @@ body {
   
   }  
   
+
+
+
 /* MODAL */
 
 .work-modal {
   display: none;
 }
-
-
 
 .work-modal--show {
   position: fixed;
